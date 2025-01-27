@@ -120,6 +120,7 @@ class RafiqApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: SplashScreen(next: startScreen(context)),
         locale: context.watch<LocaleProvider>().locale,
         theme: theme(),

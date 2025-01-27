@@ -320,11 +320,9 @@ class _CourseDetailsState extends State<CourseDetails> {
                         selectedButton = 1; // Select the first button
                       });
                     },
-                    child: Text(
+                    child: const Text(
                       'Roadmap',
-                      style: TextStyle(
-                        fontSize: screenWidth * 0.038,
-                      ),
+                      style: TextStyle(fontSize: 13),
                       maxLines: 1,
                     ),
                   ),

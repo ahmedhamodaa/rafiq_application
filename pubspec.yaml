@@ -2,7 +2,7 @@ name: rafiq
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -28,32 +28,29 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  circle_nav_bar: ^2.1.1
+  cupertino_icons: ^1.0.8
+  dash_chat_2: ^0.0.21
+  devicelocale: ^0.8.1
+  email_validator: ^2.1.17
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.6
+  flutter_gemini: ^3.0.0
+  flutter_libphonenumber: ^2.5.0
   flutter_localizations:
     sdk: flutter
-  intl: any
-
-  flutter_bloc: ^8.1.6
-  flutter_libphonenumber: ^2.5.0
-  shared_preferences: ^2.3.4
-
   flutter_svg: ^2.0.14
+  google_generative_ai: ^0.4.6
+  intl: 
+  language_code: ^0.5.5
+  path: null
+  pin_code_fields: ^8.0.1
+  provider: any
+  shared_preferences: ^2.3.4
+  sqflite: ^2.4.1
   vector_graphics: any
   video_player: ^2.9.2
-
-  email_validator: ^2.1.17
-  pin_code_fields: ^8.0.1
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
-  circle_nav_bar: ^2.1.1
-
-  language_code: ^0.5.5
-  devicelocale: ^0.8.1
-
-  provider: any
 dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_test:
@@ -117,7 +114,6 @@ flutter:
     - images/social_media/facebook_blk.png
     - images/social_media/behance_blk.png
     - images/lodosplash.mp4
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
   # For details regarding adding assets from package dependencies, see

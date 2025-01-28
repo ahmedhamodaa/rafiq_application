@@ -5,7 +5,6 @@ import 'package:rafiq/screens/get_started.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:rafiq/screens/my_profile.dart';
 import 'package:language_code/language_code.dart';
-import 'package:rafiq/main.dart';
 import 'package:rafiq/localization.dart';
 
 Widget makeTile({GestureTapCallback? onTap, IconData? leading, Widget? title}) {

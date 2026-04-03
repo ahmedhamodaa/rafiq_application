@@ -24,7 +24,9 @@ class _SplashScreenState extends State<SplashScreen> {
           }
         });
         setState(() {});
-      }).catchError((_) => _navigateToNextScreen());
+      }).catchError((_) {
+        _navigateToNextScreen();
+      });
   }
 
   @override

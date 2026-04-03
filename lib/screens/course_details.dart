@@ -35,14 +35,6 @@ class _CourseDetailsState extends State<CourseDetails> {
     super.dispose();
   }
 
-  void _togglePlayPause() {
-    if (_videoController.value.isPlaying) {
-      _videoController.pause();
-    } else {
-      _videoController.play();
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.sizeOf(context).height;

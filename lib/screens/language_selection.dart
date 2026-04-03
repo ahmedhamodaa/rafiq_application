@@ -83,27 +83,30 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: languages.map((language) {
-        return Row(
-          children: [
-            Radio<String>(
-              value: language,
-              groupValue: _selectedLanguage,
-              onChanged: (String? value) {
-                setState(() {
-                  _selectedLanguage = value;
-                });
-              },
-              activeColor: const Color(0xff071952),
-            ),
-            Text(
-              language,
-              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
-            ),
-          ],
-        );
-      }).toList(),
+    return RadioGroup<String>(
+      groupValue: _selectedLanguage,
+      onChanged: (String? value) {
+        setState(() {
+          _selectedLanguage = value;
+        });
+      },
+      child: Column(
+        children: languages.map((language) {
+          return Row(
+            children: [
+              Radio<String>(
+                value: language,
+                activeColor: const Color(0xff071952),
+              ),
+              Text(
+                language,
+                style:
+                    const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+              ),
+            ],
+          );
+        }).toList(),
+      ),
     );
   }
 }

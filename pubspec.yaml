@@ -1,8 +1,8 @@
 name: rafiq
-description: "A new Flutter project."
+description: 'A new Flutter project.'
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -30,7 +30,6 @@ environment:
 dependencies:
   circle_nav_bar: ^2.1.1
   cupertino_icons: ^1.0.8
-  dash_chat_2: ^0.0.21
   devicelocale: ^0.8.1
   email_validator: ^2.1.17
   flutter:
@@ -42,9 +41,9 @@ dependencies:
     sdk: flutter
   flutter_svg: ^2.0.14
   google_generative_ai: ^0.4.6
-  intl: 
+  intl: ^0.20.2
   language_code: ^0.5.5
-  path: null
+  path: ^1.9.1
   pin_code_fields: ^8.0.1
   provider: any
   shared_preferences: ^2.3.4

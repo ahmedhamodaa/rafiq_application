@@ -25,10 +25,10 @@ class _HomePageState extends State<HomePage> {
     // Add the instructor to the favorites screen if it's marked as favorite
     if (isFavoriteList[index]) {
       // Code to add instructor to favorites (e.g., saving it to a list or database)
-      print("Instructor at index $index added to favorites.");
+      debugPrint("Instructor at index $index added to favorites.");
     } else {
       // Code to remove instructor from favorites if it's unmarked
-      print("Instructor at index $index removed from favorites.");
+      debugPrint("Instructor at index $index removed from favorites.");
     }
   }
 

@@ -23,9 +23,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          Center(
+          const Center(
             child: SvgPicture(
-              const AssetBytesLoader("images/logins/forgotpassword.svg.vec"),
+              AssetBytesLoader("images/logins/forgotpassword.svg.vec"),
               fit: BoxFit.cover,
             ),
           ),

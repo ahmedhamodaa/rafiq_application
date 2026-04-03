@@ -69,7 +69,7 @@ class _SignupFormState extends State<SignupForm> {
                                   firstDate: DateTime(1950),
                                   lastDate: DateTime(2101));
                               if (picked != null) {
-                                print(picked.toLocal()); // TODO
+                                debugPrint(picked.toLocal().toString()); // TODO
                               }
                             },
                           )))),

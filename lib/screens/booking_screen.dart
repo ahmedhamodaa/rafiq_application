@@ -40,7 +40,7 @@ class _BookingScreenState extends State<BookingScreen> {
       );
     } else {
       // Handle payment action here
-      print('Payment completed!');
+      debugPrint('Payment completed!');
     }
   }
 
@@ -187,44 +187,46 @@ class _BookingScreenState extends State<BookingScreen> {
                     ),
                     const SizedBox(height: 8),
                     Expanded(
-                      child: ListView.builder(
-                        physics: const BouncingScrollPhysics(),
-                        itemCount: _paymentMethods.length,
-                        itemBuilder: (context, index) {
-                          final method = _paymentMethods[index];
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 18.0, vertical: 8),
-                            child: ListTile(
-                              shape: ContinuousRectangleBorder(
-                                borderRadius: BorderRadius.circular(16),
-                                side:
-                                    const BorderSide(color: Color(0xff071952)),
-                              ),
-                              leading: Image.asset(
-                                method['image'],
-                                height: 36,
-                                width: 44,
-                              ),
-                              title: Text(method['name']),
-                              trailing: Radio<int>(
-                                activeColor: const Color(0xff071952),
-                                value: index,
-                                groupValue: _selectedPaymentIndex,
-                                onChanged: (value) {
+                      child: RadioGroup<int>(
+                        groupValue: _selectedPaymentIndex,
+                        onChanged: (int? value) {
+                          setState(() {
+                            _selectedPaymentIndex = value;
+                          });
+                        },
+                        child: ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: _paymentMethods.length,
+                          itemBuilder: (context, index) {
+                            final method = _paymentMethods[index];
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 18.0, vertical: 8),
+                              child: ListTile(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                  side: const BorderSide(
+                                      color: Color(0xff071952)),
+                                ),
+                                leading: Image.asset(
+                                  method['image'],
+                                  height: 36,
+                                  width: 44,
+                                ),
+                                title: Text(method['name']),
+                                trailing: Radio<int>(
+                                  activeColor: const Color(0xff071952),
+                                  value: index,
+                                ),
+                                onTap: () {
                                   setState(() {
-                                    _selectedPaymentIndex = value;
+                                    _selectedPaymentIndex = index;
                                   });
                                 },
                               ),
-                              onTap: () {
-                                setState(() {
-                                  _selectedPaymentIndex = index;
-                                });
-                              },
-                            ),
-                          );
-                        },
+                            );
+                          },
+                        ),
                       ),
                     ),
                     Padding(

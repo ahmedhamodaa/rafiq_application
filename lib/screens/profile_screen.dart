@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rafiq/screens/edit_profile_screen.dart';
 import 'package:rafiq/screens/get_started.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:rafiq/l10n/app_localizations.dart';
 import 'package:rafiq/screens/my_profile.dart';
 import 'package:language_code/language_code.dart';
 import 'package:rafiq/localization.dart';

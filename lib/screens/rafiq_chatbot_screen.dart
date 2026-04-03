@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+
+class _ChatParticipant {
+  final String id;
+  final String firstName;
+
+  const _ChatParticipant({required this.id, required this.firstName});
+}
 
 class ChatMessage {
   final int? id;
@@ -168,11 +174,11 @@ class RafiqChatbotScreenState extends State<RafiqChatbotScreen> {
   final DatabaseHelper _dbHelper = DatabaseHelper();
   final List<ChatMessage> _messages = [];
   final TextEditingController _messageController = TextEditingController();
-  ChatUser? _currentUser;
+  _ChatParticipant? _currentUser;
   int? _currentSessionId;
   Gemini? gemini;
 
-  final ChatUser _chatGPTUser = ChatUser(
+  static const _chatGPTUser = _ChatParticipant(
     id: "Dono-r",
     firstName: "Dono-r",
   );
@@ -196,7 +202,7 @@ class RafiqChatbotScreenState extends State<RafiqChatbotScreen> {
   }
 
   void _setupCurrentUser() {
-    _currentUser = ChatUser(
+    _currentUser = const _ChatParticipant(
       id: "local_user",
       firstName: "You",
     );
@@ -342,6 +348,7 @@ class RafiqChatbotScreenState extends State<RafiqChatbotScreen> {
                 ),
                 TextButton(
                   onPressed: () async {
+                    final navigator = Navigator.of(context);
                     final newName = newNameController.text.trim();
                     if (newName.isNotEmpty) {
                       final updatedSession = Session(
@@ -354,7 +361,9 @@ class RafiqChatbotScreenState extends State<RafiqChatbotScreen> {
                         setState(() {});
                       }
                     }
-                    Navigator.pop(context);
+                    if (context.mounted) {
+                      navigator.pop();
+                    }
                   },
                   child: const Text("Save"),
                 ),
@@ -383,6 +392,7 @@ class RafiqChatbotScreenState extends State<RafiqChatbotScreen> {
             icon: const Icon(Icons.history),
             onPressed: () async {
               final sessions = await _dbHelper.getSessions();
+              if (!context.mounted) return;
 
               showDialog(
                 context: context,
@@ -427,7 +437,9 @@ class RafiqChatbotScreenState extends State<RafiqChatbotScreen> {
                       TextButton(
                         onPressed: () async {
                           await _createNewSession();
-                          Navigator.pop(context);
+                          if (context.mounted) {
+                            Navigator.pop(context);
+                          }
                         },
                         child: const Text("New Session"),
                       ),
@@ -533,7 +545,7 @@ class RafiqChatbotScreenState extends State<RafiqChatbotScreen> {
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.grey.withValues(alpha: 0.2),
             spreadRadius: 2,
             blurRadius: 5,
             offset: const Offset(0, 3),

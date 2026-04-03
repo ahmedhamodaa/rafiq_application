@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:vector_graphics/vector_graphics.dart';
 import 'package:email_validator/email_validator.dart';
 
 import 'package:rafiq/screens/sign_up.dart';
@@ -60,7 +58,7 @@ class LoginFormState extends State<LoginForm> {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ForgetPassword()),
+                            builder: (context) => const ForgetPassword()),
                       ),
                     )),
                 FilledButton(
@@ -72,8 +70,8 @@ class LoginFormState extends State<LoginForm> {
                             builder: (context) => const HomeScreen(),
                           ));
                       if (_formKey.currentState!.validate()) {
-                        print('Email: ${emailController.text}');
-                        print('Password: ${passwordController.text}');
+                        debugPrint('Email: ${emailController.text}');
+                        debugPrint('Password: ${passwordController.text}');
                       }
                     }),
                 const SizedBox(height: 16),
